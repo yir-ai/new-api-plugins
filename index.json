@@ -3703,6 +3703,135 @@
           "baseUrl": "https://api.x.ai"
         }
       ]
+    },
+    {
+      "key": "yir",
+      "name": "Yir",
+      "icon": "text:Yir",
+      "iconFile": {
+        "path": "plugins/tasks/yir/icon.svg",
+        "sha256": "cd9ce885ee61f356024399b3b229425e209b5643a8853fcb97eb245c206a2df0"
+      },
+      "website": "https://yir.ai/?utm_source=new-api\u0026utm_medium=plugin",
+      "description": {
+        "en": "Seedance, Seedream, Veo, GPT Image and Nano Banana through the Yir image and video API router, billed at the actual upstream cost",
+        "zh": "通过 Yir 图片视频 API 路由调用 Seedance、Seedream、Veo、GPT Image 与 Nano Banana，按上游实际费用计费"
+      },
+      "routes": [
+        {
+          "method": "POST",
+          "path": "/yir/v1/images/generations",
+          "type": "submit",
+          "decode": "createImage",
+          "render": "job",
+          "models": [
+            "doubao-seedream-5-0-pro-260628",
+            "doubao-seedream-5-0-260128",
+            "doubao-seedream-5-0-lite-260128",
+            "doubao-seedream-4-5-251128",
+            "openai/gpt-image-2",
+            "openai/gpt-image-1",
+            "google/nano-banana-2",
+            "google/nano-banana-pro"
+          ]
+        },
+        {
+          "method": "POST",
+          "path": "/yir/v1/videos/generations",
+          "type": "submit",
+          "decode": "createVideo",
+          "render": "job",
+          "models": [
+            "doubao-seedance-1-5-pro-251215",
+            "doubao-seedance-2-0-260128",
+            "doubao-seedance-2-0-fast-260128",
+            "doubao-seedance-2-0-mini-260615",
+            "doubao-seedance-2-5-260628",
+            "veo-3.1-generate-preview",
+            "veo-3.1-generate-001",
+            "veo-3.1-fast-generate-preview",
+            "veo-3.1-fast-generate-001"
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/yir/v1/jobs/:task_id",
+          "type": "query",
+          "render": "job",
+          "taskIdParam": "task_id"
+        }
+      ],
+      "protocols": [
+        {
+          "name": "openai_video",
+          "models": [
+            "doubao-seedance-1-5-pro-251215",
+            "doubao-seedance-2-0-260128",
+            "doubao-seedance-2-0-fast-260128",
+            "doubao-seedance-2-0-mini-260615",
+            "doubao-seedance-2-5-260628",
+            "veo-3.1-generate-preview",
+            "veo-3.1-generate-001",
+            "veo-3.1-fast-generate-preview",
+            "veo-3.1-fast-generate-001"
+          ]
+        },
+        {
+          "name": "openai_image",
+          "models": [
+            "doubao-seedream-5-0-pro-260628",
+            "doubao-seedream-5-0-260128",
+            "doubao-seedream-5-0-lite-260128",
+            "doubao-seedream-4-5-251128",
+            "openai/gpt-image-2",
+            "openai/gpt-image-1",
+            "google/nano-banana-2",
+            "google/nano-banana-pro"
+          ]
+        }
+      ],
+      "usageSchema": {
+        "usd": {
+          "type": "number",
+          "unit": "credit",
+          "description": {
+            "en": "Yir charge unit price (per US dollar)",
+            "zh": "Yir 实际扣费单价（每美元）"
+          }
+        }
+      },
+      "usageExamples": null,
+      "usageProfiles": null,
+      "models": [
+        "doubao-seedance-1-5-pro-251215",
+        "doubao-seedance-2-0-260128",
+        "doubao-seedance-2-0-fast-260128",
+        "doubao-seedance-2-0-mini-260615",
+        "doubao-seedance-2-5-260628",
+        "veo-3.1-generate-preview",
+        "veo-3.1-generate-001",
+        "veo-3.1-fast-generate-preview",
+        "veo-3.1-fast-generate-001",
+        "doubao-seedream-5-0-pro-260628",
+        "doubao-seedream-5-0-260128",
+        "doubao-seedream-5-0-lite-260128",
+        "doubao-seedream-4-5-251128",
+        "openai/gpt-image-2",
+        "openai/gpt-image-1",
+        "google/nano-banana-2",
+        "google/nano-banana-pro"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "path": "plugins/tasks/yir/1.0.0/plugin.js",
+          "sha256": "7067f32e4d36e900ce2b7572d56e68e63f6d3928d63472606081bd3449ee2b07",
+          "minApiVersion": 1,
+          "kind": "task",
+          "baseUrl": "https://gateway.yir.ai"
+        }
+      ]
     }
   ]
 }
